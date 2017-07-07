@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import {MessagesComponent} from './messages-component'
+import { NewMessageComponent } from './new-message-component';
 
 @Component({
   selector: 'my-app',
   template: `
-            <h1>Hello {{name}}</h1>
+           
             <messages></messages>
+            <new-message></new-message>
             `,
 })
-export class AppComponent  { name = 'Henrik'; }
+export class AppComponent  {}

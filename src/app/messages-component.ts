@@ -8,8 +8,10 @@ import { WebService } from './web.service';
                 <div class="list-group" style="width: 40rem;">
                     <div *ngFor="let message of messages">
                          <a (click)="setActive(message.owner)" href="#" class="list-group-item">
+                         <div class="message-header">
                          <h4>{{message.owner}}</h4>
-                          {{message.text}}
+                         </div>
+                          <p>{{message.text}}</p>
                          </a>
                     </div>
                 </div>

@@ -6,19 +6,19 @@ import { Message } from './message';
 @Component({
     selector: 'new-message',
     template: `
-            <div class="container">
-                <form (ngSubmit)="submitForm(owner,text)">
+           
+                <form (ngSubmit)="submitForm(owner,text)" style="width:40rem;">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="owner" [(ngModel)] ='newOwner'  placeholder="Owner" required>
+                        <input type="text" class="form-control" id="owner" [(ngModel)] ='newOwner' [ngModelOptions]="{standalone: true}"  placeholder="Owner" required>
                     </div>
  
                     <div class="form-group">
-                        <input type="text" class="form-control" id="text" [(ngModel)]='newText'  placeholder="Text" requierd>
+                        <input type="text" class="form-control" id="text" [(ngModel)]='newText' [ngModelOptions]="{standalone: true}"  placeholder="Text" required>
                     </div>
  
                     <button type="submit" class="btn btn-success">Submit</button>
                 </form>
-            </div>
+            
                 `
 
 })
@@ -28,8 +28,8 @@ export class NewMessageComponent {
        
     }
 
-     newOwner : string = "test";
-     newText : string ="test";
+     newOwner : string = "Name";
+     newText : string ="Text";
 
     submitForm() {
         let message = new Message(this.newOwner, this.newText);

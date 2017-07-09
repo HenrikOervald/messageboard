@@ -2,20 +2,32 @@ import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 
-import { Message } from './message';
- 
-@Injectable()
-export class WebService{
 
-    constructor(private http : Http){}
-   
-    getMessages(){
-         return this.http.get("http://localhost:49917/api/messages").toPromise();
+
+@Injectable()
+export class WebService {
+
+    BASE_URL = 'http://localhost:49917/api';
+
+    messages: any = [];
+
+    constructor(private http: Http) {
+        this.getMessages();
     }
 
-  postMessage(message : Message){
-        var mes :JSON  = JSON.parse(JSON.stringify(message));
-        console.log(mes);
-        this.http.post("http://localhost:49917/api/messages", mes ).toPromise();
+    async getMessages() {
+        try {
+            var response = await this.http.get(this.BASE_URL + "/messages").toPromise();
+            this.messages = response.json();
+        } catch (error) {
+            console.error("Unable to fetch data");
+        }
+
+    }
+
+    async postMessage(message: any) {
+        console.log(message);
+        var response = await this.http.post(this.BASE_URL + "/messages", message).toPromise();
+        this.messages.push(response.json());
     }
 };

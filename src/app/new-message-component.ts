@@ -1,7 +1,8 @@
-import { Component } from "@angular/core"
+import { Component,Output, EventEmitter } from "@angular/core"
 import { WebService } from './web.service';
 
-import { Message } from './message';
+
+import { MessagesComponent } from './messages-component';
 
 @Component({
     selector: 'new-message',
@@ -9,11 +10,11 @@ import { Message } from './message';
            
                 <form (ngSubmit)="submitForm(owner,text)" style="width:40rem;">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="owner" [(ngModel)] ='newOwner' [ngModelOptions]="{standalone: true}"  placeholder="Owner" required>
+                        <input type="text" class="form-control" id="owner" [(ngModel)] ='message.owner' [ngModelOptions]="{standalone: true}"  placeholder="Owner" required>
                     </div>
  
                     <div class="form-group">
-                        <input type="text" class="form-control" id="text" [(ngModel)]='newText' [ngModelOptions]="{standalone: true}"  placeholder="Text" required>
+                        <input type="text" class="form-control" id="text" [(ngModel)]='message.text' [ngModelOptions]="{standalone: true}"  placeholder="Text" required>
                     </div>
  
                     <button type="submit" class="btn btn-success">Submit</button>
@@ -24,16 +25,21 @@ import { Message } from './message';
 })
 export class NewMessageComponent {
 
+    @Output() onPosted = new EventEmitter();
+
     constructor(private webService: WebService) {
        
     }
-
-     newOwner : string = "Name";
-     newText : string ="Text";
-
+    message = {
+    owner :"",
+    text : ""
+    }
+    
     submitForm() {
-        let message = new Message(this.newOwner, this.newText);
-        this.webService.postMessage(message);
+       
+        this.webService.postMessage(this.message);
+        this.onPosted.emit(this.message);
+
     }
 
 }

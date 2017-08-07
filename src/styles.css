@@ -1,8 +1,55 @@
+body {
+  background: rgb(26,26,26);
+}
+
 h1 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
 
+.message{
+  padding : 0px;;
+  margin: 0px;;
+}
 
+
+.message .list-group-item{
+  background-color :rgb(77,77,77);
+  margin-top: 3px;
+  border: none;
+  padding:4px 0px 4px 0px ;
+}
+
+.message .list-group-item:hover{
+  background-color: rgb(77,77,77);
+}
+
+.message .list-group-item:active{
+  background-color: rgb(77,77,77);
+}
+
+.message .list-group-item .message-header{
+  width :100%;
+  color:orange;
+  border-bottom: 1px solid white;
+  padding: 0,0,0,0;
+}
+
+.badge{
+  float:right;
+  margin-right: 5px;
+}
+
+.message .list-group-item .message-body{
+  color: white;
+}
+
+.i{
+  margin: center;
+}
+
+ .glyphicon-plus{
+  font-size: 7px;
+}
 

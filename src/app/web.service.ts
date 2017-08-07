@@ -8,7 +8,7 @@ import 'rxjs/add/operator/toPromise';
 export class WebService {
 
     BASE_URL = 'http://localhost:49917/api';
-
+    /**Data storage for messages. Is used in messages-component.ts */
     messages: any = [];
 
     constructor(private http: Http) {

@@ -25,8 +25,6 @@ import { MessagesComponent } from './messages-component';
 })
 export class NewMessageComponent {
 
-    @Output() onPosted = new EventEmitter();
-
     constructor(private webService: WebService) {
        
     }
@@ -38,8 +36,6 @@ export class NewMessageComponent {
     submitForm() {
        
         this.webService.postMessage(this.message);
-        this.onPosted.emit(this.message);
-
     }
 
 }

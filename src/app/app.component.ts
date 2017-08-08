@@ -6,9 +6,11 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'my-app',
   template: `
-           
+           <navbar></navbar>
+           <div class="container">
             <messages></messages>
             <new-message></new-message>
+            </div>
             `,
 })
 export class AppComponent  {

@@ -8,24 +8,37 @@ h1 {
   font-size: 250%;
 }
 
+.navbar{
+  margin-bottom: 20px;
+}
+
+.new-message{
+  margin-top: 10px;
+  
+  border-radius: 5px;
+  padding:10px;
+  background-color :rgb(77,77,77);
+
+}
+
 .message{
   padding : 0px;;
   margin: 0px;;
 }
-
 
 .message .list-group-item{
   background-color :rgb(77,77,77);
   margin-top: 3px;
   border: none;
   padding:4px 0px 4px 0px ;
+  
 }
 
-.message .list-group-item:hover{
+.message .list-group-item:focus{
   background-color: rgb(77,77,77);
 }
 
-.message .list-group-item:active{
+.message .list-group-item:hover{
   background-color: rgb(77,77,77);
 }
 
@@ -36,13 +49,18 @@ h1 {
   padding: 0,0,0,0;
 }
 
+.message .list-group-item .message-header h4{
+  margin-left: 5px;
+}
+
+.message .list-group-item .message-body p{
+  color: white;
+  margin-left: 5px;
+}
+
 .badge{
   float:right;
   margin-right: 5px;
-}
-
-.message .list-group-item .message-body{
-  color: white;
 }
 
 .i{
@@ -51,5 +69,9 @@ h1 {
 
  .glyphicon-plus{
   font-size: 7px;
+}
+
+.form-group-owner{
+  width:300px;
 }
 

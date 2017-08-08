@@ -5,19 +5,28 @@ import { WebService } from './web.service';
     selector: 'messages',
     template: `
                 <h1 *ngIf="activeName != '' ">Message by : {{activeName}}</h1>
-                <div class="list-group" style="width: 40rem;">
+                <div class="list-group">
                     <div *ngFor="let message of webService.messages">
                     <div class="message">
-                         <a (click)="setActive(message.owner)" href="#" class="list-group-item">
+                         <a (click)="setActive(message.owner)" href="#" class="list-group-item ">
                          
                          <div class="message-header">
-                         <h4><i class="glyphicon glyphicon-plus"></i>   {{message.owner}} <span class="badge">{{webService.messages.length}}</span></h4>
+                         <h4>{{message.owner}} <span class="badge badge-pill badge-default">{{webService.messages.length}}</span></h4>
                          </div>
                          <div class="message-body">
                           <p>{{message.text}}</p>
                           </div>
+
+
+                        
+                    
+
+
                          </a>
                     </div>
+
+                   
+
                     </div>
                 </div>
                 `
